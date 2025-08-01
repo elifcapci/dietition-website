@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        button {
+            background: #4a7c59;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #3a6b4a;
+        }
+        .image-info {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placeholder Image Generator</h1>
+        <p>This tool generates placeholder images for the dietitian website. Right-click on each image and "Save As" to the assets folder.</p>
+        
+        <div class="image-info">
+            <h3>Logo (40x40px)</h3>
+            <p>Save as: assets/logo.png</p>
+            <canvas id="logo" width="40" height="40"></canvas>
+            <button onclick="generateLogo()">Regenerate Logo</button>
+        </div>
+
+        <div class="image-info">
+            <h3>Hero Image (500x400px)</h3>
+            <p>Save as: assets/hero-image.jpg</p>
+            <canvas id="hero" width="500" height="400"></canvas>
+            <button onclick="generateHero()">Regenerate Hero</button>
+        </div>
+
+        <div class="image-info">
+            <h3>Dietitian Photo (400x500px)</h3>
+            <p>Save as: assets/dietitian-photo.jpg</p>
+            <canvas id="photo" width="400" height="500"></canvas>
+            <button onclick="generatePhoto()">Regenerate Photo</button>
+        </div>
+
+        <div class="image-info">
+            <h3>Blog Image 1 (400x200px)</h3>
+            <p>Save as: assets/blog-1.jpg</p>
+            <canvas id="blog1" width="400" height="200"></canvas>
+            <button onclick="generateBlog1()">Regenerate Blog 1</button>
+        </div>
+
+        <div class="image-info">
+            <h3>Blog Image 2 (400x200px)</h3>
+            <p>Save as: assets/blog-2.jpg</p>
+            <canvas id="blog2" width="400" height="200"></canvas>
+            <button onclick="generateBlog2()">Regenerate Blog 2</button>
+        </div>
+
+        <div class="image-info">
+            <h3>Blog Image 3 (400x200px)</h3>
+            <p>Save as: assets/blog-3.jpg</p>
+            <canvas id="blog3" width="400" height="200"></canvas>
+            <button onclick="generateBlog3()">Regenerate Blog 3</button>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #e8f5e8; border-radius: 10px;">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Click "Regenerate" buttons to create new placeholder images</li>
+                <li>Right-click on each canvas and select "Save image as..."</li>
+                <li>Save the images in the assets folder with the correct filenames</li>
+                <li>Refresh your main website to see the images</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function generateLogo() {
+            const canvas = document.getElementById('logo');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#4a7c59';
+            ctx.fillRect(0, 0, 40, 40);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('RD', 20, 20);
+        }
+
+        function generateHero() {
+            const canvas = document.getElementById('hero');
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 500, 400);
+            gradient.addColorStop(0, '#e8f5e8');
+            gradient.addColorStop(1, '#4a7c59');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 500, 400);
+            
+            // Add some shapes
+            ctx.fillStyle = 'rgba(255,255,255,0.2)';
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(400, 300, 80, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = '#2c5530';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Healthy Nutrition', 250, 200);
+        }
+
+        function generatePhoto() {
+            const canvas = document.getElementById('photo');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(0, 0, 400, 500);
+            
+            // Professional photo placeholder
+            ctx.fillStyle = '#4a7c59';
+            ctx.beginPath();
+            ctx.arc(200, 200, 80, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Professional Photo', 200, 350);
+            ctx.fillText('400x500px', 200, 370);
+        }
+
+        function generateBlog1() {
+            const canvas = document.getElementById('blog1');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#ff6b6b';
+            ctx.fillRect(0, 0, 400, 200);
+            
+            // Add some food-like shapes
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.beginPath();
+            ctx.arc(100, 100, 30, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(300, 100, 25, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Nutrition Tips', 200, 100);
+        }
+
+        function generateBlog2() {
+            const canvas = document.getElementById('blog2');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#4ecdc4';
+            ctx.fillRect(0, 0, 400, 200);
+            
+            // Add meal prep shapes
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.fillRect(50, 50, 80, 60);
+            ctx.fillRect(150, 80, 60, 40);
+            ctx.fillRect(250, 60, 70, 50);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Meal Planning', 200, 100);
+        }
+
+        function generateBlog3() {
+            const canvas = document.getElementById('blog3');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#45b7d1';
+            ctx.fillRect(0, 0, 400, 200);
+            
+            // Add wellness shapes
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.beginPath();
+            ctx.arc(200, 100, 40, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Wellness', 200, 100);
+        }
+
+        // Generate all images on load
+        window.onload = function() {
+            generateLogo();
+            generateHero();
+            generatePhoto();
+            generateBlog1();
+            generateBlog2();
+            generateBlog3();
+        };
+    </script>
+</body>
+</html> 
