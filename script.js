@@ -97,9 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('load', () => {
             img.style.opacity = '1';
         });
-        
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.3s ease';
+        // Fix: If image is already loaded (from cache), show it
+        if (img.complete) {
+            img.style.opacity = '1';
+        }
     });
 });
 
@@ -196,3 +199,90 @@ backToTopButton.addEventListener('mouseleave', () => {
     backToTopButton.style.transform = 'translateY(0)';
     backToTopButton.style.boxShadow = '0 4px 12px rgba(74, 124, 89, 0.3)';
 }); 
+
+// Dynamically load and render blog posts from blog-data.json
+function renderBlogPosts() {
+    fetch('blog-data.json')
+        .then(response => response.json())
+        .then(data => {
+            const posts = data.posts.filter(post => post.status === 'published');
+            const blogGrid = document.querySelector('.blog-grid.main-carousel-list');
+            const leftArrow = document.getElementById('main-carousel-left');
+            const rightArrow = document.getElementById('main-carousel-right');
+            const dotsContainer = document.getElementById('main-carousel-dots');
+            if (!blogGrid) return;
+            let position = 0;
+            const blogsPerPage = 4;
+            const totalPages = Math.ceil(posts.length / blogsPerPage);
+
+            function renderPage(page) {
+                if (blogGrid) {
+                    blogGrid.classList.add('fading');
+                    setTimeout(() => {
+                        blogGrid.innerHTML = '';
+                        const start = page * blogsPerPage;
+                        const end = start + blogsPerPage;
+                        posts.slice(start, end).forEach(post => {
+                            const article = document.createElement('article');
+                            article.className = 'blog-card main-carousel-card';
+                            article.innerHTML = `
+                                <div class="blog-image">
+                                    <img src="${post.image}" alt="${post.title}" class="blog-img">
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <span class="blog-date">${new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                        <span class="blog-category">${data.categories.find(cat => cat.id === post.category)?.name || ''}</span>
+                                    </div>
+                                    <h3 class="blog-title">${post.title}</h3>
+                                    <p class="blog-excerpt">${post.excerpt}</p>
+                                    <a href="blog-post.html?id=${post.id}" class="read-more">Devamını Oku</a>
+                                </div>
+                            `;
+                            blogGrid.appendChild(article);
+                        });
+                        renderDots(page);
+                        blogGrid.classList.remove('fading');
+                    }, 500);
+                }
+            }
+
+            function renderDots(activePage) {
+                if (!dotsContainer) return;
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'carousel-dot' + (i === activePage ? ' active' : '');
+                    dot.setAttribute('data-page', i);
+                    dot.addEventListener('click', () => {
+                        position = i;
+                        renderPage(position);
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            if (leftArrow && rightArrow) {
+                leftArrow.onclick = () => {
+                    if (position > 0) {
+                        position--;
+                        renderPage(position);
+                    }
+                };
+                rightArrow.onclick = () => {
+                    if (position < totalPages - 1) {
+                        position++;
+                        renderPage(position);
+                    }
+                };
+            }
+
+            // Initial render
+            renderPage(position);
+        })
+        .catch(err => {
+            console.error('Blog verileri yüklenemedi:', err);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', renderBlogPosts); 

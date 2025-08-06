@@ -1,0 +1,151 @@
+{
+  "posts": [
+    {
+      "id": 1754247665906,
+      "title": "3 ağustos test blog",
+      "excerpt": "testingggg",
+      "content": "test test test test test test&nbsp;",
+      "category": "beslenme-ipuclari",
+      "tags": [
+        ""
+      ],
+      "image": "assets/blog-default.jpg",
+      "date": "2025-08-03",
+      "status": "published",
+      "views": 0
+    },
+    {
+      "id": 1754244689908,
+      "title": "Yoğun Profesyoneller için Basit Öğün Hazırlama Stratejileri",
+      "excerpt": "Önceden besleyici öğünler hazırlamayı ve yoğun programınıza rağmen sağlıklı bir beslenme düzeni sürdürmeyi öğrenin.",
+      "content": "<p>Yoğun iş hayatında sağlıklı beslenmek için:</p><ol><li>Haftalık plan yapın</li><li>Önceden hazırlayın</li><li>Dondurucu kullanın</li></ol>",
+      "category": "kilo-verme",
+      "tags": [
+        "öğün planlama",
+        "yoğun hayat",
+        "beslenme"
+      ],
+      "image": "blob:http://localhost:3000/b58f17b4-f3ea-451a-a082-1b1991d4964b",
+      "date": "2025-08-03",
+      "status": "published",
+      "views": 0
+    },
+    {
+      "id": 1754159661712,
+      "title": "Test Blog",
+      "excerpt": "What is Lorem Ipsum? - edited",
+      "content": "<strong style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>",
+      "category": "tarifler",
+      "tags": [
+        ""
+      ],
+      "image": "blob:http://localhost:3000/42f9bee7-3099-4fba-98d5-0e8dc1a55ed7",
+      "date": "2025-08-02",
+      "status": "published",
+      "views": 0
+    },
+    {
+      "id": 1754159641846,
+      "title": "Test Blog",
+      "excerpt": "What is Lorem Ipsum? - edited",
+      "content": "<strong style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>",
+      "category": "tarifler",
+      "tags": [
+        ""
+      ],
+      "image": "blob:http://localhost:3000/42af54a3-bc5f-475e-894a-0f9ac5183ca1",
+      "date": "2025-08-02",
+      "status": "draft",
+      "views": 0
+    },
+    {
+      "id": 1754158911960,
+      "title": "Test Blog",
+      "excerpt": "What is Lorem Ipsum?",
+      "content": "<strong style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">Lorem Ipsum</strong><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>",
+      "category": "tarifler",
+      "tags": [
+        ""
+      ],
+      "image": "assets/blog-default.jpg",
+      "date": "2025-08-02",
+      "status": "published",
+      "views": 0
+    },
+    {
+      "id": 1,
+      "title": "Güçlü Bağışıklık Sistemi için 5 Temel Besin",
+      "excerpt": "Vücudunuzun doğal savunma mekanizmalarını destekleyen temel vitamin ve mineralleri keşfedin ve bunları günlük beslenmenize nasıl dahil edeceğinizi öğrenin.",
+      "content": "<p>Bağışıklık sisteminizi güçlendirmek için 5 temel besin önemlidir:</p><ul><li>C Vitamini</li><li>D Vitamini</li><li>Çinko</li><li>Omega-3</li><li>Probiyotikler</li></ul>",
+      "category": "beslenme-ipuclari",
+      "tags": [
+        "bağışıklık",
+        "vitamin",
+        "sağlık"
+      ],
+      "image": "assets/blog-1.jpg",
+      "date": "2024-03-15",
+      "status": "published",
+      "views": 245
+    },
+    {
+      "id": 2,
+      "title": "Yoğun Profesyoneller için Basit Öğün Hazırlama Stratejileri",
+      "excerpt": "Önceden besleyici öğünler hazırlamayı ve yoğun programınıza rağmen sağlıklı bir beslenme düzeni sürdürmeyi öğrenin.",
+      "content": "<p>Yoğun iş hayatında sağlıklı beslenmek için:</p><ol><li>Haftalık plan yapın</li><li>Önceden hazırlayın</li><li>Dondurucu kullanın</li></ol>",
+      "category": "kilo-verme",
+      "tags": [
+        "öğün planlama",
+        "yoğun hayat",
+        "beslenme"
+      ],
+      "image": "assets/blog-2.jpg",
+      "date": "2024-03-10",
+      "status": "published",
+      "views": 189
+    },
+    {
+      "id": 3,
+      "title": "Bilinçli Yeme Sanatı: Besinlerle İlişkinizi Dönüştürün",
+      "excerpt": "Besinlerle daha sağlıklı bir ilişki geliştirmenize ve genel refahınızı artırmanıza yardımcı olabilecek farkındalık tekniklerini keşfedin.",
+      "content": "<p>Bilinçli yeme teknikleri:</p><ul><li>Yavaş yiyin</li><li>Dikkatli olun</li><li>Duygularınızı kontrol edin</li></ul>",
+      "category": "saglikli-yasam",
+      "tags": [
+        "bilinçli yeme",
+        "farkındalık",
+        "sağlık"
+      ],
+      "image": "assets/blog-3.jpg",
+      "date": "2024-03-05",
+      "status": "published",
+      "views": 156
+    }
+  ],
+  "categories": [
+    {
+      "id": "beslenme-ipuclari",
+      "name": "Beslenme İpuçları",
+      "description": "Günlük beslenme ipuçları ve öneriler"
+    },
+    {
+      "id": "kilo-verme",
+      "name": "Kilo Verme",
+      "description": "Sağlıklı kilo verme yöntemleri"
+    },
+    {
+      "id": "sporcu-beslenmesi",
+      "name": "Sporcu Beslenmesi",
+      "description": "Sporcular için beslenme rehberi"
+    },
+    {
+      "id": "saglikli-yasam",
+      "name": "Sağlıklı Yaşam",
+      "description": "Genel sağlık ve yaşam tarzı"
+    },
+    {
+      "id": "tarifler",
+      "name": "Sağlıklı Tarifler",
+      "description": "Besleyici ve lezzetli tarifler"
+    }
+  ]
+}

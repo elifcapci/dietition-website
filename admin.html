@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Yönetimi - Melis Kara</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-lock"></i> Blog Yönetimi</h1>
+                <p>Melis Kara - Admin Girişi</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Şifre</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden until login) -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <h1><i class="fas fa-blog"></i> Blog Yönetimi</h1>
+                <div class="admin-user">
+                    <span>Hoş geldin, Melis!</span>
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Çıkış
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav class="admin-nav">
+                    <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a href="#new-post" class="nav-item" data-section="new-post">
+                        <i class="fas fa-plus"></i> Yeni Blog Yazısı
+                    </a>
+                    <a href="#manage-posts" class="nav-item" data-section="manage-posts">
+                        <i class="fas fa-list"></i> Blog Yazılarını Yönet
+                    </a>
+                    <a href="#settings" class="nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i> Ayarlar
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Toplam Blog Yazısı</h3>
+                            <p id="totalPosts">3</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-eye"></i>
+                            <h3>Toplam Görüntülenme</h3>
+                            <p id="totalViews">1,247</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <h3>Bu Ay</h3>
+                            <p id="monthlyPosts">2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-posts">
+                        <h3>Son Blog Yazıları</h3>
+                        <div id="recentPostsList" class="posts-list">
+                            <!-- Recent posts will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- New Post Section -->
+                <section id="new-post" class="content-section">
+                    <h2>Yeni Blog Yazısı</h2>
+                    <form id="newPostForm" class="post-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postTitle">Başlık</label>
+                                <input type="text" id="postTitle" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postCategory">Kategori</label>
+                                <select id="postCategory" name="category" required>
+                                    <option value="">Kategori Seçin</option>
+                                    <option value="beslenme-ipuclari">Beslenme İpuçları</option>
+                                    <option value="kilo-verme">Kilo Verme</option>
+                                    <option value="sporcu-beslenmesi">Sporcu Beslenmesi</option>
+                                    <option value="saglikli-yasam">Sağlıklı Yaşam</option>
+                                    <option value="tarifler">Sağlıklı Tarifler</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postExcerpt">Kısa Açıklama</label>
+                            <textarea id="postExcerpt" name="excerpt" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="postContent">İçerik</label>
+                            <div class="editor-toolbar">
+                                <button type="button" class="toolbar-btn" data-command="bold">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-command="italic">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-command="underline">
+                                    <i class="fas fa-underline"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-command="insertUnorderedList">
+                                    <i class="fas fa-list-ul"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" data-command="insertOrderedList">
+                                    <i class="fas fa-list-ol"></i>
+                                </button>
+                            </div>
+                            <div id="postContent" class="content-editor" contenteditable="true"></div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postImage">Blog Görseli</label>
+                                <input type="file" id="postImage" name="image" accept="image/*">
+                            </div>
+                            <div class="form-group">
+                                <label for="postTags">Etiketler (virgülle ayırın)</label>
+                                <input type="text" id="postTags" name="tags" placeholder="beslenme, sağlık, diyet">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" id="saveDraft" class="btn-secondary">
+                                <i class="fas fa-save"></i> Taslak Olarak Kaydet
+                            </button>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i> Yayınla
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Manage Posts Section -->
+                <section id="manage-posts" class="content-section">
+                    <h2>Blog Yazılarını Yönet</h2>
+                    <div class="posts-management">
+                        <div class="posts-filters">
+                            <input type="text" id="searchPosts" placeholder="Blog yazısı ara...">
+                            <select id="filterCategory">
+                                <option value="">Tüm Kategoriler</option>
+                                <option value="beslenme-ipuclari">Beslenme İpuçları</option>
+                                <option value="kilo-verme">Kilo Verme</option>
+                                <option value="sporcu-beslenmesi">Sporcu Beslenmesi</option>
+                                <option value="saglikli-yasam">Sağlıklı Yaşam</option>
+                                <option value="tarifler">Sağlıklı Tarifler</option>
+                            </select>
+                        </div>
+                        
+                        <div id="postsList" class="posts-list">
+                            <!-- Posts will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="content-section">
+                    <h2>Ayarlar</h2>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <h3>Blog Ayarları</h3>
+                            <div class="form-group">
+                                <label for="blogTitle">Blog Başlığı</label>
+                                <input type="text" id="blogTitle" value="Melis Kara - Beslenme Blogu">
+                            </div>
+                            <div class="form-group">
+                                <label for="blogDescription">Blog Açıklaması</label>
+                                <textarea id="blogDescription" rows="3">Sağlıklı beslenme ve diyet hakkında uzman görüşleri</textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <h3>Güvenlik</h3>
+                            <div class="form-group">
+                                <label for="adminPassword">Admin Şifresi Değiştir</label>
+                                <input type="password" id="adminPassword" placeholder="Yeni şifre">
+                            </div>
+                            <button type="button" id="changePassword" class="btn-secondary">
+                                Şifreyi Değiştir
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

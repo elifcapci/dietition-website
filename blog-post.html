@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Yazısı</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Ana navigasyon">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="Melis Kara Diyetisyen Logo" class="logo">
+                <span class="logo-text">Melis Kara</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Ana Sayfa</a></li>
+                <li><a href="index.html#bio" class="nav-link">Hakkımda</a></li>
+                <li><a href="index.html#online-diet" class="nav-link">Online Diyet</a></li>
+                <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+                <li><a href="index.html#contact" class="nav-link">İletişim</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main class="container blog-post-layout">
+        <div id="blog-post-container">
+            <p>Yükleniyor...</p>
+        </div>
+        <aside id="other-posts-sidebar">
+            <h3 class="sidebar-title">Diğer Yazılar</h3>
+            <div id="other-posts-list"></div>
+        </aside>
+    </main>
+    <script>
+    // Hamburger menu toggle for mobile nav
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+        }
+    });
+    // Get post id from URL
+    function getPostId() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('id');
+    }
+
+    function renderPost(post, categories) {
+        const container = document.getElementById('blog-post-container');
+        if (!post) {
+            container.innerHTML = '<p>Blog yazısı bulunamadı.</p>';
+            return;
+        }
+        const category = categories.find(cat => cat.id === post.category)?.name || '';
+        container.innerHTML = `
+            <article class="blog-post-detail">
+                <h1 class="blog-title">${post.title}</h1>
+                <div class="blog-meta">
+                    <span class="blog-date">${new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    <span class="blog-category">${category}</span>
+                </div>
+                <img src="${post.image}" alt="${post.title}" class="blog-img">
+                <div class="blog-content">${post.content}</div>
+            </article>
+        `;
+    }
+
+    function renderOtherPosts(posts, categories, currentId) {
+        const list = document.getElementById('other-posts-list');
+        if (!list) return;
+        // Exclude current post, show up to 5 others
+        const others = posts.filter(p => String(p.id) !== String(currentId) && p.status === 'published').slice(0, 5);
+        if (others.length === 0) {
+            list.innerHTML = '<p>Başka yazı yok.</p>';
+            return;
+        }
+        list.innerHTML = others.map(post => {
+            const category = categories.find(cat => cat.id === post.category)?.name || '';
+            return `
+                <a class="sidebar-post-link" href="blog-post.html?id=${post.id}">
+                    <img src="${post.image}" alt="${post.title}" class="sidebar-post-img">
+                    <div class="sidebar-post-info">
+                        <div class="sidebar-post-title">${post.title}</div>
+                        <div class="sidebar-post-meta">
+                            <span class="sidebar-post-date">${new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                            <span class="sidebar-post-category">${category}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const postId = getPostId();
+        fetch('blog-data.json')
+            .then(response => response.json())
+            .then(data => {
+                const post = data.posts.find(p => String(p.id) === String(postId));
+                renderPost(post, data.categories);
+                renderOtherPosts(data.posts, data.categories, postId);
+            })
+            .catch(err => {
+                document.getElementById('blog-post-container').innerHTML = '<p>Blog verisi yüklenemedi.</p>';
+            });
+    });
+    </script>
+</body>
+</html>

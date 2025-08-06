@@ -15,7 +15,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 70px 20px 0 20px; /* Add top padding for fixed navbar */
 }
 
 /* Navigation */
@@ -440,7 +440,7 @@ body {
 }
 
 .blog-image {
-    height: 200px;
+    height: 120px;
     overflow: hidden;
 }
 
@@ -456,14 +456,14 @@ body {
 }
 
 .blog-content {
-    padding: 1.5rem;
+    padding: 0.8rem;
 }
 
 .blog-meta {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
 }
 
 .blog-date {
@@ -476,16 +476,17 @@ body {
 }
 
 .blog-title {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #2c5530;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     line-height: 1.4;
 }
 
 .blog-excerpt {
     color: #666;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.92rem;
     line-height: 1.6;
 }
 
@@ -785,4 +786,364 @@ html {
 .blog-card,
 .contact-item {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* Blog Post Detail Page Styles */
+.blog-post-detail {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem 2.5rem 2rem;
+    margin: 40px auto 60px auto;
+    max-width: 700px;
+}
+
+.blog-post-detail .blog-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.blog-post-detail .blog-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.blog-post-detail .blog-date {
+    color: #999;
+}
+
+.blog-post-detail .blog-category {
+    color: #4a7c59;
+    font-weight: 600;
+}
+
+.blog-post-detail .blog-img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.blog-post-detail .blog-content {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+}
+
+/* Navbar separation for blog post page */
+.blog-post-detail, #blog-post-container {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .blog-post-detail {
+        padding: 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+    .blog-post-detail .blog-title {
+        font-size: 1.4rem;
+    }
+} 
+
+/* Blog Post Page Layout with Sidebar */
+.blog-post-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+#blog-post-container {
+    flex: 2 1 0;
+    min-width: 0;
+}
+
+#other-posts-sidebar {
+    flex: 1 1 300px;
+    max-width: 340px;
+    background: #f8faf9;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+    margin-top: 0;
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+#other-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sidebar-post-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.sidebar-post-link:hover {
+    box-shadow: 0 6px 18px rgba(74,124,89,0.10);
+    transform: translateY(-2px);
+}
+
+.sidebar-post-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #e8f5e8;
+}
+
+.sidebar-post-info {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.sidebar-post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    gap: 0.7rem;
+}
+
+.sidebar-post-date {
+    color: #999;
+}
+
+.sidebar-post-category {
+    color: #4a7c59;
+    font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+    .blog-post-layout {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    #other-posts-sidebar {
+        max-width: 100%;
+        margin-top: 0;
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+} 
+
+/* Blog Sidebar Carousel Styles */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.carousel-arrow {
+    background: #fff;
+    border: 1px solid #e8f5e8;
+    color: #4a7c59;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+    z-index: 2;
+}
+.carousel-arrow:hover {
+    background: #4a7c59;
+    color: #fff;
+}
+.carousel-arrow.left {
+    margin-right: 0.5rem;
+}
+.carousel-arrow.right {
+    margin-left: 0.5rem;
+}
+
+.carousel-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.carousel-card {
+    min-width: 0;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+@media (max-width: 1000px) {
+    .carousel-list {
+        gap: 0.5rem;
+    }
+    .carousel-card {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-list {
+        gap: 0.3rem;
+    }
+    .carousel-card {
+        font-size: 0.9rem;
+    }
+    .carousel-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+} 
+
+/* Main Blog Carousel Styles (Home Page) */
+.blog .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.blog .main-carousel-arrow {
+    background: #fff;
+    border: 1px solid #e8f5e8;
+    color: #4a7c59;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+    z-index: 2;
+}
+.blog .main-carousel-arrow:hover {
+    background: #4a7c59;
+    color: #fff;
+}
+.blog .main-carousel-arrow.left {
+    margin-right: 0.5rem;
+}
+.blog .main-carousel-arrow.right {
+    margin-left: 0.5rem;
+}
+
+.blog-grid.main-carousel-list {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    transition: opacity 0.5s ease;
+}
+.blog-grid.main-carousel-list.fading {
+  opacity: 0;
+}
+
+.blog-grid.main-carousel-list .main-carousel-card {
+    flex: 0 0 22%; /* 4 cards per view, with gap */
+    min-width: 0;
+    max-width: 100%;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+@media (max-width: 1200px) {
+    .blog-grid.main-carousel-list .main-carousel-card {
+        flex: 0 0 30%; /* 3 per view */
+    }
+}
+@media (max-width: 900px) {
+    .blog-grid.main-carousel-list .main-carousel-card {
+        flex: 0 0 45%; /* 2 per view */
+    }
+}
+@media (max-width: 600px) {
+    .blog-grid.main-carousel-list .main-carousel-card {
+        flex: 0 0 90%; /* 1 per view */
+    }
+    .blog .main-carousel-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+    .blog-grid.main-carousel-list {
+        gap: 0.7rem;
+    }
+}
+
+/* Blog post page sidebar remains a vertical list (no carousel styles) */
+#other-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+} 
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active {
+  background: #4a7c59;
 } 
